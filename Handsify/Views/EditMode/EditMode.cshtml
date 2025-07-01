@@ -1,0 +1,43 @@
+﻿@model PageInfoModel
+    
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div class="row w-100 justify-content-center">
+        <div class="col-8 canvas-container">
+            <canvas id="podMapCanvas"></canvas>
+          @*   <div id="podMapClone"> </div> *@
+        </div>
+
+        <div class="col-4 info-and-legend" >
+            <div class="station-info-container" id="station-info-container"> 
+       
+            @{
+
+                @await Html.PartialAsync("_AddStationPartial")
+
+                }
+            </div>
+            <div>
+                <div class="w-100 d-flex flex-row justify-content-between">
+                    <label class="label">Broken/Missing</label>
+                    <label class="label">Working</label>
+                </div>
+                <div id="legend"></div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <script type="module" src="~/js/editmode.js"></script>
+    
+
+</body>
+
+</html>

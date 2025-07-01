@@ -1,0 +1,26 @@
+﻿@{
+    @model Handsify.Models.LoginModel
+    ViewData["Title"] = "LoginInputView";
+}
+@{
+}
+
+<div class="vertical container" id="login-user-input">
+    <div class="name-and-logo center">
+        <h1 class="text accent" id="title">Handsify</h1>
+        <img src="../images/handsify-logo.svg" id="login-logo" />
+    </div>
+    <div class="vertical left container input" id="login-input">
+        <label for="login-username-input" class="text login-label accent">Username</label>
+        <input type="text" maxlength="30" id="login-username-input" class="input-field" placeholder="Enter your username here..." />
+    </div>
+    <div class="vertical left container input " id="login-input">
+        <label for="login-password-input" class="text login-label accent">Password</label>
+        <input type="password" id="login-password-input" class="input-field" placeholder="Enter your password here..." />
+    </div>
+
+    <button id="login" class="button login-button" onClick="onLoginButtonClick()">Login</button>
+    <div id="login-message" class="text"></div>
+
+
+</div>

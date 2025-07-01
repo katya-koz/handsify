@@ -1,0 +1,213 @@
+﻿/*.station-box {
+    position: relative;
+    background-color: #D9D9D9;
+    border: 1vh solid #D9D9D9;
+    border-radius: 2vh;
+    margin-bottom: 3vh;
+    height: 40vh;*/ /* Fixed height */
+    /*width: 80em;
+    display: flex;*/ /* Use flexbox for layout */
+    /*flex-direction: column;*/ /* Stack child elements vertically */
+    /*padding: 1em;
+    
+}*/
+
+.station-box {
+    position: relative;
+    background: #D9D9D9;
+    border: 1vh solid #D9D9D9;
+    border-radius: 1em;
+    height: 35vh;
+    width: 80em;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    overflow: hidden; /* just in case */
+}
+
+.scroll-box {
+    height: 100%;
+    flex-shrink: 1 1 auto; /* grow & shrink inside flex parent */
+    overflow-y: auto; /* vertical scrolling */
+    min-height: 0; /* allow shrinking below intrinsic min */
+}
+
+
+.scroll-box::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+    background: #ededed;
+    border-radius: 0.5em;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 0.5em;
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+/*.row {
+    display: flex;*/ /* Use flexbox inside the row */
+    /*flex: 1;*/ /* Allow row to take up available space */
+    /*height:100%;*/
+    /*overflow: auto;*/ /* Hide any overflow content if needed */
+/*}*/
+/* Station name styling */
+.station-name {
+    font-weight: bold;
+}
+
+/* Aligns the status dropdown and notes in one row */
+.status-notes-row {
+    display: flex;
+    align-items: start; /* Vertically center items in the row */
+    gap: 3vh; /* Space between status area and notes */
+}
+.bold{
+    font-weight:700;
+}
+#stations-container {
+    padding-bottom: 5em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    overflow:auto;
+}
+/* Dropdown box */
+.status-dropdown {
+    display: inline-block;
+    background-color: #D9D9D9;
+    padding: 2vh;
+    border-radius: 3vh;
+}
+
+/*.name-notes-row {
+    display: flex;
+    align-items: center;*/ /* Vertically center them */
+    /*gap: 18%;*/ /* Spacing between name & notes label */
+/*}*/
+
+/* Notes section styling */
+/*.notes-section {
+    display: inline-block;
+}*/
+
+/*.notes-label {
+    font-weight: bold;
+    font-size: large;
+}*/
+/*
+.op.note-box{
+   padding:1em;
+}
+*/
+.op.note-box-info{
+    font-size:0.75em;
+}
+.op.note-box-content {
+    font-size: 0.8em;
+    margin:0;
+}
+
+.notes-box {
+    padding: 2em;
+    border-radius: 1em;
+    background-color: #f8f8f8;
+    width: 100%;
+    resize: none;
+    overflow:auto;
+    font-size: 0.8em;
+}
+
+#operation-body{
+    overflow:hidden;
+
+}
+
+/* Styling the status button */
+/*.status-dropdown .btn-secondary {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: none;
+    border-radius: 3vh;
+    padding: 0.5vh 1.5vh;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}*/
+
+/* Dropdown menu styling */
+/*.status-dropdown .dropdown-menu {
+    background-color: #FFFFFF;
+    border: 1px solid #cccccc;
+    border-radius: 3vh;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5vh;
+}*/
+
+/* Dropdown items */
+/*.status-dropdown .dropdown-item {
+    color: #000000;
+    padding: 0.5vh 1.5vh;
+    font-size: 1rem;
+    border-radius: 2vh;
+}
+
+    .status-dropdown .dropdown-item:hover {
+        background-color: #e9ecef;
+        color: #000000;
+    }*/
+
+/* Clear and confirm buttons at corners */
+.clear-btn {
+    width: 3vh;
+    height: 3vh;
+    position: absolute;
+    top: 0.25vh;
+    right: 1vh;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+    .clear-btn .icon-img {
+        width: 3vh;
+        height: 3vh;
+    }
+
+    p{
+        margin:0!important;
+    }
+.confirm-btn {
+    width: 3vh;
+    height: 3vh;
+    position: absolute;
+    bottom: 0.25vh;
+    right: 1vh;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+    .confirm-btn .icon-img {
+        width: 3vh;
+        height: 3vh;
+    }
+
+
+
+/* fix selector comma */
+.col-5,
+.col-3,
+.col-4,
+.col-2{
+    height:100%;
+}
+

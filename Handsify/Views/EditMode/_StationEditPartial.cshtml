@@ -1,0 +1,135 @@
+﻿@model HHStation
+@{
+    ViewData["Title"] = "_StationEditPartial";
+}
+
+
+    <div id="station-view" class="container-fluid d-flex flex-column filled">
+    <div class="archive-station-btn align-self-end d-flex" data-field=@Model.StationKey>
+        <p class="label">Archive this Station</p>    
+        <img class="icon" src ="~/images/archive-icon.svg"/>
+        </div>
+
+        <div class="container-fluid flex-shrink-0">
+            <!-- Station Name (Editable) -->
+            <div class="editable-group mb-2">
+                <p class="label">Station Name</p>
+                <div class="editable-field" data-field="StationName" >
+                    <span class="display-text" id="station-name-field">@Model.StationName</span>
+                    <button class="edit-btn btn btn-link" data-field="station-name-field" data-station-key=@Model.StationKey type="button" id="station-name-field-edit">
+                        <img src="~/images/edit-icon.svg" class="icon" />
+                    </button>
+                    <button class="undo-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-name-field" id="station-name-field-undo">
+                        <img src="~/images/x-circle.svg" class="icon" />
+                    </button>
+                    <button class="accept-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-name-field" id="station-name-field-accept">
+                        <img src="~/images/check2-circle.svg" class="icon" />
+                    </button>
+                </div>
+            </div>
+
+            <!-- Station ID (Editable) -->
+            <div class="editable-group mb-2">
+                <p class="label">Station ID</p>
+                <div class="editable-field" data-field="StationID">
+                    <span class="display-text" id="station-id-field" >@Model.StationID</span>
+                    <button class="edit-btn btn btn-link" data-station-key=@Model.StationKey data-field="station-id-field" data-station-key=@Model.StationKey type="button" id="station-id-field-edit">
+                        <img src="~/images/edit-icon.svg" class="icon" />
+                    </button>
+                    <button class="undo-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-id-field" id="station-id-field-undo">
+                        <img src="~/images/x-circle.svg" class="icon" />
+                    </button>
+                    <button class="accept-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-id-field" id="station-id-field-accept">
+                        <img src="~/images/check2-circle.svg" class="icon" />
+                    </button>
+                </div>
+            </div>
+
+            <!-- Station Location (Dropdown) -->
+            <div class="editable-group mb-2">
+                <p class="label">Station Location</p>
+                <div class="editable-field" data-field="Location" >
+                    <span class="display-text" id="station-location-field" >@Model.Location</span>
+                    <button class="dropdown-edit-btn btn btn-link" data-station-key=@Model.StationKey data-field="station-location-field" data-station-key=@Model.StationKey type="button" id="station-location-field-edit">
+                        <img src="~/images/edit-icon.svg" class="icon" />
+                    </button>
+                    <button class="undo-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-location-field" id="station-location-field-undo">
+                        <img src="~/images/x-circle.svg" class="icon" />
+                    </button>
+                    <button class="accept-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-location-field" id="station-location-field-accept">
+                        <img src="~/images/check2-circle.svg" class="icon" />
+                    </button>
+                </div>
+            </div>
+
+            <!-- Station Type (Dropdown) -->
+            <div class="editable-group mb-2">
+                <p class="label">Station Type</p>
+                <div class="editable-field" data-field="Type" >
+                    <span class="display-text" id="station-type-field" >@Model.StationType</span>
+                    <button class="dropdown-edit-btn btn btn-link" data-station-key=@Model.StationKey data-field="station-type-field" data-station-key=@Model.StationKey type="button" id="station-type-field-edit">
+                        <img src="~/images/edit-icon.svg" class="icon" />
+                    </button>
+                    <button class="undo-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-type-field" id="station-type-field-undo">
+                        <img src="~/images/x-circle.svg" class="icon" />
+                    </button>
+                    <button class="accept-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="station-type-field" id="station-type-field-accept">
+                        <img src="~/images/check2-circle.svg" class="icon" />
+                    </button>
+                </div>
+            </div>
+
+            <!-- Online Status (Not Editable) -->
+            <div class="d-flex align-items-center mb-2">
+                <p class="label me-2">Online Status:</p>
+                @{
+                    if (Model.OnlineStatus)
+                    {
+                        <div class="online-status online"></div>
+                    }
+                    else
+                    {
+                        <div class="online-status offline"></div>
+                    }
+                }
+            </div>
+
+            <p class="label">Notes</p>
+        </div>
+
+        <!-- Notes Section (Archiveable) -->
+        <div class="notes-container flex-shrink-2">
+            <!-- add a note -->
+            <div class="note-editable-group mb-2">
+                <div class="add-note-btn">
+                <p id= "note-field" class="label">Add a Note:</p>
+                    <div class="note-editable-field" data-field="Note">
+                    <button class="note-edit-btn btn btn-link" data-field="note-field" data-station-key=@Model.StationKey type="button" id="note-field-edit">
+                        <img src="~/images/plus-circle.svg" class="icon" />
+                    </button>
+                    <button class="undo-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="note-field" id="note-field-undo">
+                            <img src="~/images/x-circle.svg" class="icon" />
+                    </button>
+                    <button class="accept-btn btn btn-link disabled" data-station-key=@Model.StationKey data-field="note-field" id="note-field-accept">
+                            <img src="~/images/check2-circle.svg" class="icon" />
+                    </button>
+                </div>
+                </div>
+            </div>
+
+            @foreach (Note note in Model.Notes.Values.OrderByDescending(n => n.CreateDate))
+            {
+                string infoString = note.Author + " - " + note.CreateDate.ToString();
+                <div class="note-box d-flex flex-column position-relative mb-2" id="note-@note.NoteKey">
+                    <!-- Archive Icon in the top right corner -->
+                    <button class="archive-btn btn-link position-absolute" style="top:0; right:0;" type="button" data-station-key="@Model.StationKey" data-note-id="note-@note.NoteKey" data-note-key="@note.NoteKey">
+                        <img src="~/images/archive-icon.svg" class="icon" />
+                    </button>
+                    <p class="note-box-info">@infoString</p>
+                    <p>@note.Content</p>
+                </div>
+            }
+
+        </div>
+    </div>
+

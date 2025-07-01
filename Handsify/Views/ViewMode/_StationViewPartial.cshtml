@@ -1,0 +1,46 @@
+﻿@model HHStation
+@{
+    ViewData["Title"] = "_StationViewPartial";
+    //Console.WriteLine((Model.OnlineStatus);
+}
+    <div id="station-view" class="container-fluid d-flex flex-column filled">
+        <div class="container-fluid flex-shrink-0">
+            <p class="label">Station Name</p>
+            <p>@Model.StationName</p>
+            <p class="label">Station ID</p>
+            <p>@Model.StationID</p>
+            <p class="label">Station Location</p>
+            <p>@Model.Location</p>
+            <p class="label">Station Type</p>
+            <p>@Model.StationType</p>
+            <div class="d-flex">
+                <p class="label">Online Status: </p>@{
+                    if (Model.OnlineStatus == true)
+                    {
+                        <div class="online-status online"></div>
+                    }
+                    else
+                    {
+                        <div class="online-status offline"></div>
+                    }
+                }
+            </div>
+            <p class="label">Notes</p>
+        </div>
+        <div class="notes-container flex-shrink-2">
+            @{
+                foreach (Note note in Model.Notes.Values.OrderByDescending(n => n.CreateDate))
+                {
+                    string infoString = note.Author + " - " + note.CreateDate.ToString();
+
+                    <div class="note-box d-flex flex-column">
+                        <p class="note-box-info">@infoString</p>
+                        <p>@note.Content</p>
+                    </div>
+
+
+                }
+
+            }
+        </div>
+    </div>

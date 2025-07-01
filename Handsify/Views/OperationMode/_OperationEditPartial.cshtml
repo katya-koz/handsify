@@ -1,0 +1,98 @@
+﻿
+
+@model HHStation
+@{
+    ViewData["Title"] = "_OperationEditPartial";
+
+
+
+}
+    <div class="station-box" id="station-box-@Model.StationKey">
+        <div class="row h-100">
+        <div class="col-3 d-flex flex-column">
+            <div class="scroll-box gap-1 d-flex flex-column container-fluid flex-shrink-0">
+               
+                <p class="bold">@Model.StationName</p>
+                <p class="label">Station ID</p>
+                <p>@Model.StationID</p>
+                <p class="label">Station Location</p>
+                <p>@Model.Location</p>
+                <p class="label">Station Type</p>
+                <p>@Model.StationType</p>
+                <div class="d-flex">
+                    <p class="label">Online Status: </p>@{
+                        if (Model.OnlineStatus == true)
+                        {
+                                    <div class="online-status online"></div>
+                        }
+                        else
+                        {
+                                    <div class="online-status offline"></div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+         <div class="col-5 d-flex flex-column h-100 overflow-auto">
+            <p class="label">Notes</p>
+            <div class="notes-container flex-shrink-2">
+            @{
+                foreach (Note note in Model.Notes.Values.OrderByDescending(n => n.CreateDate))
+                {
+                    string infoString = note.Author + " - " + note.CreateDate.ToString();
+
+                                <div class="op note-box d-flex flex-column">
+                                    <p class="op note-box-info">@infoString</p>
+                                    <p class="op note-box-content">@note.Content</p>
+                                </div>
+                }
+            }
+            </div>
+        </div>
+        <div class="scroll-box col-4 d-flex flex-column gap-1">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-@Model.StationKey" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Set Status
+                </button>
+                <div class="dropdown-menu" aria-labelledby="mode-dropdown">
+
+                        <a class="dropdown-item"
+                           data-name="@Model.StationKey"
+                          >
+                            Set Status
+                        </a>
+                        <a class="dropdown-item"
+                            data-name="@Model.StationKey"
+                            data-model-result-value="1">
+                           Working
+                        </a>
+                    <a class="dropdown-item"
+                       data-name="@Model.StationKey"
+                       data-model-result-value="0">
+                        Broken/Missing
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="notes-section">
+               <p class="label">Add Notes:</p>
+                <div class="form-group">
+                    <textarea class="form-control notes-box"
+                    id="notes-@Model.StationKey"
+                    rows="4"
+                    placeholder="Write any notes here..."></textarea>
+                </div>
+            </div>
+             <button class="btn clear-btn cancel-btn" type="button" data-stationKey='@Model.StationKey'>
+            <img src="/images/x-circle.svg" alt="Icon" class="icon-img">
+            </button> 
+            <!-- 'Confirm' button in bottom-right corner -->
+            <button class="btn confirm-btn" type="button" data-stationKey='@Model.StationKey'>
+            <img src="/images/check2-circle.svg" alt="Icon" class="icon-img">
+            </button>
+
+        </div>
+    </div></div>
+   
